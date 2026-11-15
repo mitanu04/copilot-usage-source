@@ -1,0 +1,100 @@
+{
+  "name": "copilot-usage-dashboard",
+  "displayName": "Copilot Usage Dashboard",
+  "description": "Local statistics about how you use GitHub Copilot: models, chat vs inline, agents, skills, prompt types, projects, days and hours.",
+  "version": "0.5.0",
+  "publisher": "mihai-local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilotUsage.openDashboard",
+        "title": "Copilot Usage: Open Dashboard",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "copilotUsage.showWorkspaceSetup",
+        "title": "Copilot Usage: Show AI Setup of This Workspace"
+      },
+      {
+        "command": "copilotUsage.refresh",
+        "title": "Copilot Usage: Rescan Chat History"
+      },
+      {
+        "command": "copilotUsage.editProject",
+        "title": "Copilot Usage: Add or Edit Project"
+      },
+      {
+        "command": "copilotUsage.deleteProject",
+        "title": "Copilot Usage: Delete Project"
+      },
+      {
+        "command": "copilotUsage.exportJson",
+        "title": "Copilot Usage: Export Data as JSON"
+      },
+      {
+        "command": "copilotUsage.resetInline",
+        "title": "Copilot Usage: Reset Inline Completion History"
+      }
+    ],
+    "configuration": {
+      "title": "Copilot Usage Dashboard",
+      "properties": {
+        "copilotUsage.projectGroups": {
+          "type": "object",
+          "markdownDescription": "Your projects. Easiest to manage with the **Copilot Usage: Add or Edit Project** command or the **+ Project** button in the dashboard. Keys are project names, values are workspace folder names or glob patterns (`*` matches anything, case-insensitive). Workspaces not in any project are shown under their own folder name.",
+          "default": {},
+          "scope": "application"
+        },
+        "copilotUsage.trackInline": {
+          "type": "boolean",
+          "default": true,
+          "description": "Estimate accepted inline (ghost text) completions by watching large single insertions that are not pastes. Stored locally in VS Code global state.",
+          "scope": "application"
+        },
+        "copilotUsage.inlineMinChars": {
+          "type": "number",
+          "default": 15,
+          "description": "Minimum inserted characters for an edit to count as an accepted inline completion.",
+          "scope": "application"
+        },
+        "copilotUsage.statusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show today's chat and inline counts in the status bar.",
+          "scope": "application"
+        },
+        "copilotUsage.extraChatFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Additional VS Code 'User' folders to scan (e.g. Code - Insiders).",
+          "scope": "application"
+        }
+      }
+    }
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "In untrusted workspaces, folder-specific chat.*FilesLocations settings are ignored when scanning the workspace's AI setup."
+    },
+    "virtualWorkspaces": {
+      "supported": false,
+      "description": "Reads local files on disk."
+    }
+  }
+}
