@@ -1,5 +1,7 @@
 # Copilot Usage Dashboard
 
+**Author:** Mergea Sergiu-Octavian
+
 Local statistics about how you use GitHub Copilot in VS Code. Nothing leaves your machine.
 
 ## What it shows
@@ -32,8 +34,8 @@ skills or agents you configured but never use. Click a name to open the file. Th
 automatically when one of these files changes.
 
 ## Install
-1. In VS Code: Extensions view → `…` menu → **Install from VSIX…** → pick `copilot-usage-dashboard-0.4.0.vsix`.
-   (or: `code --install-extension copilot-usage-dashboard-0.4.0.vsix`)
+1. In VS Code: Extensions view → `…` menu → **Install from VSIX…** → pick `copilot-usage-dashboard-0.5.0.vsix`.
+   (or: `code --install-extension copilot-usage-dashboard-0.5.0.vsix`)
 2. Reload the window.
 
 ## Use

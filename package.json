@@ -4,6 +4,7 @@
   "description": "Local statistics about how you use GitHub Copilot: models, chat vs inline, agents, skills, prompt types, projects, days and hours.",
   "version": "0.5.0",
   "publisher": "mihai-local",
+  "author": "Mergea Sergiu-Octavian",
   "license": "MIT",
   "engines": {
     "vscode": "^1.90.0"
